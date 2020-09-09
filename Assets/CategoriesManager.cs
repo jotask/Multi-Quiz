@@ -7,6 +7,12 @@ using UnityEngine;
 public class CategoriesManager : MonoBehaviour
 {
 
+    public struct Category
+    {
+        public string id;
+        public string text;
+    }
+
     public GameManager gameManager;
 
     public GameObject CategoryPrefab;
@@ -20,7 +26,7 @@ public class CategoriesManager : MonoBehaviour
         {
             var c = Instantiate(CategoryPrefab, parentCategorySpawner);
             var data = c.GetComponent<CategoryData>();
-            data.Init(cat.Replace("\"", string.Empty));
+            data.Init(cat);
             data.menuManager = tmp;
         }
     }
@@ -31,26 +37,25 @@ public class CategoriesManager : MonoBehaviour
         
     }
 
-    HashSet<String> GetAllCategoriesFromFile()
+    HashSet<Category> GetAllCategoriesFromFile()
     {
         List<Question> allQuestions = new List<Question>();
         var fileToString = File.ReadAllText(GameUtility.FileToRead);
         var root = SimpleJSON.JSON.Parse(fileToString);
 
-        HashSet<String> categories = new HashSet<string>();
+        HashSet<Category> categories = new HashSet<Category>();
 
         // Read questions
         {
-            var questionsNode = root["questions"];
-            for (int i = 0; i < questionsNode.Count; i++)
+            var categoriesNode = root["categories"];
+            for (int i = 0; i < categoriesNode.Count; i++)
             {
+                var category = categoriesNode[i];
 
-                var Node = questionsNode[i];
-                var category = Node["category"].ToString().ToLower();
-                if (categories.Contains(category) == false)
-                {
-                    categories.Add(category);
-                }
+                Category cat = new Category();
+                cat.id = category["id"].ToString().Replace("\"", string.Empty);
+                cat.text = category["name"].ToString().Replace("\"", string.Empty);
+                categories.Add(cat);
             }
 
         }

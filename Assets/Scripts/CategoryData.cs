@@ -10,12 +10,12 @@ public class CategoryData : MonoBehaviour
 
     public TextMeshProUGUI buttonText;
 
-    public string GategoryData = string.Empty;
+    public CategoriesManager.Category GategoryData;
 
-    public void Init(string categoryName)
+    public void Init(CategoriesManager.Category category)
     {
-        GategoryData = categoryName;
-        buttonText.text = GategoryData;
+        GategoryData = category;
+        buttonText.text = GategoryData.text;
     }
 
     public void ClickButton()

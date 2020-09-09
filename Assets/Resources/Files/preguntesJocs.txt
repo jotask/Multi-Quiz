@@ -17,20 +17,38 @@
             {"value" : "16"}
         ]
     },
+    "categories" : [
+        {
+            "id" : "retrogame",
+            "name" : "Retro"
+        },
+        {
+            "id" : "actualgame",
+            "name" : "Actual"
+        },
+        {
+            "id" : "characters",
+            "name" : "Characters"
+        },
+        {
+            "id" : "hardware",
+            "name" : "Hardware"
+        }
+    ],
     "questions" :
     [
         {
-            "category":"retrogame",
+            "category": "retrogame",
             "question": "¿Cuál fue el primer Mega Man que permitió cargar los disparos (Mega Buster)?",
             "answer": [
-                {"value" : "Siempre se pudo"},
                 {"value" : "Mega Man 4", "correct": "true"},
+                {"value" : "Siempre se pudo"},
                 {"value" : "Mega Man X"},
                 {"value" : "Mega Man 6"}
             ]
         },
         {
-            "category":"retrogame",
+            "category": "retrogame",
             "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
             "answer": [
                 {"value" : "25"},

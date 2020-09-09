@@ -26,10 +26,10 @@ public class MenuManager : MonoBehaviour
         gameMenu.SetActive(false);
     }
 
-    internal void click(string gategoryData)
+    internal void click(CategoriesManager.Category gategoryData)
     {
         GoToGameMenu();
-        gameManager.Init(gategoryData);
+        gameManager.Init(gategoryData.id);
     }
 
     public void GoToMainMenu()
