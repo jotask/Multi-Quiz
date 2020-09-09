@@ -188,9 +188,7 @@ public class GameManager : MonoBehaviour
         {
             IE_StartTimer = StartTimer();
             StartCoroutine(IE_StartTimer);
-
             timerAnimator.SetInteger(TimerStateParameterHash, 2);
-
         }
         else
         {
@@ -198,7 +196,6 @@ public class GameManager : MonoBehaviour
             {
                 StopCoroutine(IE_StartTimer);
             }
-
             timerAnimator.SetInteger(TimerStateParameterHash, 1);
         }
     }
