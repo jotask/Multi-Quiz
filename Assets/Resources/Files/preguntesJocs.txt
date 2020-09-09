@@ -1,7 +1,8 @@
 {
     "configuration" :
     {
-        "defaultScore" : 10
+        "defaultScore" : 10,
+        "questionsToAsk" : 3
     },
     "example" :
     {

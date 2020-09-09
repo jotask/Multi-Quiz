@@ -54,7 +54,6 @@ public class CategoriesManager : MonoBehaviour
             }
 
         }
-
         return categories;
     }
 
