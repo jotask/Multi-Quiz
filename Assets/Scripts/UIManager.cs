@@ -203,7 +203,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (var answer in currentAnswers)
         {
-            Destroy(answer);
+            Destroy(answer.gameObject);
         }
         currentAnswers.Clear();
     }
