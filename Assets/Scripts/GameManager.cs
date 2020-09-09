@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateAnswers(AnswerData newAnswer)
     {
+
         if (Questions[currentQuestion].GetAnswerType == Question.AnswerType.Single)
         {
             foreach (var answer in PickedAnswers)
@@ -79,9 +80,9 @@ public class GameManager : MonoBehaviour
                 {
                     answer.Reset();
                 }
-                PickedAnswers.Clear();
-                PickedAnswers.Add(newAnswer);
             }
+            PickedAnswers.Clear();
+            PickedAnswers.Add(newAnswer);
         }
         else if (Questions[currentQuestion].GetAnswerType == Question.AnswerType.Multi)
         {
@@ -298,13 +299,12 @@ public class GameManager : MonoBehaviour
                     answers.Add(a);
                 }
 
-                question.GetAnswerType = answers.Count > 1 ? Question.AnswerType.Multi : Question.AnswerType.Single;
+                question.GetAnswerType = answers.Count(item => item.IsCorrect) > 1 ? Question.AnswerType.Multi : Question.AnswerType.Single;
+
                 question.Answers = answers.ToArray();
 
                 allQuestions.Add(question);
             }
-
-            Debug.Log("We have a total of " + allQuestions.Count + " questions");
 
             _questions = allQuestions;
 

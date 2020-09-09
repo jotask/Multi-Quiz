@@ -271,7 +271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -429,5 +429,5 @@ MonoBehaviour:
   infoTextObj: {fileID: 6548880281262474780}
   toggle: {fileID: 6548880282819528049}
   uncheckedToggle: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  checkedToggle: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  checkedToggle: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   events: {fileID: 11400000, guid: 1041191719ba09e42ab9775114bb7a70, type: 2}

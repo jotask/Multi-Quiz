@@ -189,6 +189,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < question.Answers.Length; i++)
         {
             AnswerData newAnswer = Instantiate(answerPrefab, uiElements.AnswerContentArea);
+            newAnswer.Reset();
             newAnswer.UpdateData(question.Answers[i].Info, i);
 
             newAnswer.Rect.anchoredPosition = new Vector2(0, offset);
