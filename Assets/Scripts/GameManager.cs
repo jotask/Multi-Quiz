@@ -18,12 +18,10 @@ public class GameManager : MonoBehaviour
     {
         LoadQuestions();
 
-        foreach (var question in _questions)
-        {
-            Debug.Log(question.Info);
-        }
+        int seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+        UnityEngine.Random.InitState(seed);
 
-        // Display();
+        Display();
     }
 
     public void EraseAnswers()
