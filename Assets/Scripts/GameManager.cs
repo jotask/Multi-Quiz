@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -9,8 +10,8 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
-    Question[] _questions;
-    public Question[] Questions { get { return _questions; } }
+    List<Question> _questions;
+    public List<Question> Questions { get { return _questions; } }
 
     [SerializeField] GameEvents events = null;
 
@@ -29,13 +30,11 @@ public class GameManager : MonoBehaviour
     private IEnumerator IE_WaitUntilNextRound = null;
     private IEnumerator IE_StartTimer = null;
 
-
-
     private Color timerDefaultColor;
 
     private bool IsFinished
     {
-        get { return FinishedQuestions.Count < Questions.Length ? false : true; }
+        get { return FinishedQuestions.Count < Questions.Count ? false : true; }
     }
 
     private void OnEnable()
@@ -244,11 +243,11 @@ public class GameManager : MonoBehaviour
     int GetRandomQuestionIndex()
     {
         var random = 0;
-        if (FinishedQuestions.Count < _questions.Length)
+        if (FinishedQuestions.Count < _questions.Count)
         {
             do
             {
-                random = UnityEngine.Random.Range(0, _questions.Length);
+                random = UnityEngine.Random.Range(0, _questions.Count);
             } while (FinishedQuestions.Contains(random) || random == currentQuestion);
         }
         return random;
@@ -256,12 +255,63 @@ public class GameManager : MonoBehaviour
 
     void LoadQuestions()
     {
-        UnityEngine.Object[] objs = Resources.LoadAll("Questions", typeof(Question));
-        _questions = new Question[objs.Length];
-        for (int i = 0; i < objs.Length; i++)
+
+        List<Question> allQuestions = new List<Question>();
+        var fileToString = File.ReadAllText("Assets/Resources/Files/preguntesJocs.txt");
+        var root = SimpleJSON.JSON.Parse(fileToString);
+
+        int defaultScoreToAdd = 0;
+
+        // Read configuration
         {
-            _questions[i] = objs[i] as Question;
+            var config = root["configuration"];
+            defaultScoreToAdd = config["defaultScore"].AsInt;
         }
+
+        // Read questions
+        {
+            var questionsNode = root["questions"];
+            for (int i = 0; i < questionsNode.Count; i++)
+            {
+
+                var Node = questionsNode[i];
+
+                var question = ScriptableObject.CreateInstance<Question>();
+
+                question.Info = Node["question"].ToString();
+                question.AddScore = Node["score"] == null ? defaultScoreToAdd : Node["score"].AsInt;
+                question.UseTimer = Node["timer"] != null;
+                if (question.UseTimer)
+                {
+                    question.Timer = Node["timer"].AsInt;
+                }
+
+                var Answers = Node["answer"];
+
+                List<Answer> answers = new List<Answer>();
+                for (int j = 0; j < Answers.Count; j++)
+                {
+                    var Answer = Answers[j];
+                    Answer a = new Answer();
+                    a.Info = Answer["value"].ToString();
+                    a.IsCorrect = Answer["correct"] == null ? false : Answer["correct"].AsBool;
+                    answers.Add(a);
+                }
+
+                question.GetAnswerType = answers.Count > 1 ? Question.AnswerType.Multi : Question.AnswerType.Single;
+                question.Answers = answers.ToArray();
+
+                allQuestions.Add(question);
+            }
+
+            Debug.Log("We have a total of " + allQuestions.Count + " questions");
+
+            _questions = allQuestions;
+
+            Debug.Log("We have a total of " + _questions.Count + " questions");
+        }
+
+        
     }
 
     private void UpdateScore(int add)
