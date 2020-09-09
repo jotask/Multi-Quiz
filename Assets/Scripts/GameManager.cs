@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] Color timerHalfWaitOutColor = Color.yellow;
     [SerializeField] Color timerAlmostOutColor = Color.red;
 
-
     private List<AnswerData> PickedAnswers = new List<AnswerData>();
     private List<int> FinishedQuestions = new List<int>();
     private int currentQuestion = -1;
@@ -259,11 +258,13 @@ public class GameManager : MonoBehaviour
         var root = SimpleJSON.JSON.Parse(fileToString);
 
         int defaultScoreToAdd = 0;
+        int questionsToAsk = 0;
 
         // Read configuration
         {
             var config = root["configuration"];
             defaultScoreToAdd = config["defaultScore"].AsInt;
+            questionsToAsk = config["questionsToAsk"].AsInt;
         }
 
         // Read questions
@@ -310,7 +311,7 @@ public class GameManager : MonoBehaviour
                 allQuestions.Add(question);
             }
 
-            _questions = allQuestions;
+            _questions = new List<Question>(allQuestions.AsEnumerable().OrderBy(n => Guid.NewGuid()).Take(questionsToAsk));
 
             Debug.Log("We have a total of " + _questions.Count + " questions");
         }
