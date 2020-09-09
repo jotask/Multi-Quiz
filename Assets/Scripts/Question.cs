@@ -20,6 +20,9 @@ public class Question : ScriptableObject
     [SerializeField] private string _info;
     public string Info { get { return _info; } set { _info = value; } }
 
+    [SerializeField] private string _category;
+    public string Category { get { return _category; } set { _category = value; } }
+
     [SerializeField] Answer[] _answers;
     public Answer[] Answers { get { return _answers; } set { _answers = value; } }
 

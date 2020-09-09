@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private List<AnswerData> PickedAnswers = new List<AnswerData>();
     private List<int> FinishedQuestions = new List<int>();
-    private int currentQuestion = 0;
+    private int currentQuestion = -1;
 
     private int TimerStateParameterHash = 0;
 
@@ -52,14 +52,14 @@ public class GameManager : MonoBehaviour
         events.CurrentFinalScore = 0;
     }
 
-    private void Start()
+    public void Init(String str)
     {
 
         events.StartupHighScore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
 
         timerDefaultColor = timerTexts.color;
 
-        LoadQuestions();
+        LoadQuestions(str);
 
         TimerStateParameterHash = Animator.StringToHash("TimerState");
 
@@ -251,11 +251,11 @@ public class GameManager : MonoBehaviour
         return random;
     }
 
-    void LoadQuestions()
+    void LoadQuestions(string category)
     {
 
         List<Question> allQuestions = new List<Question>();
-        var fileToString = File.ReadAllText("Assets/Resources/Files/preguntesJocs.txt");
+        var fileToString = File.ReadAllText(GameUtility.FileToRead);
         var root = SimpleJSON.JSON.Parse(fileToString);
 
         int defaultScoreToAdd = 0;
@@ -274,9 +274,16 @@ public class GameManager : MonoBehaviour
 
                 var Node = questionsNode[i];
 
+                var cat = Node["category"].ToString().Replace("\"", string.Empty);
+                if(cat.Equals(category, StringComparison.CurrentCultureIgnoreCase) == false)
+                {
+                    continue;
+                }
+
                 var question = ScriptableObject.CreateInstance<Question>();
 
                 question.Info = Node["question"].ToString();
+                question.Category = cat;
                 question.AddScore = Node["score"] == null ? defaultScoreToAdd : Node["score"].AsInt;
                 question.UseTimer = Node["timer"] != null;
                 if (question.UseTimer)
