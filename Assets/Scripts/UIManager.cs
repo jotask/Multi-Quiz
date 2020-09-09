@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,17 @@ public struct UIManagerParameters
     [Header("AnswersOptions")]
     [SerializeField] float margins;
     public float Margins { get { return margins; } }
+
+    [Header("Resolution Screen Options")]
+    [SerializeField] Color correctBgColor;
+    public Color CorrectBgColor { get { return correctBgColor; } }
+
+    [SerializeField] Color inCorrectBgColor;
+    public Color IncorrectBgColor { get { return inCorrectBgColor; } }
+
+    [SerializeField] Color finalBgColor;
+    public Color FinalBgColor { get { return finalBgColor; } }
+
 }
 
 [System.Serializable]
@@ -32,6 +44,9 @@ public struct UIElements
     [SerializeField] Image resolutionBackground;
     public Image ResolutionBackground { get { return resolutionBackground; } }
 
+    [SerializeField] Animator resolutionScreenAnimator;
+    public Animator ResolutionScreenAnimator { get { return resolutionScreenAnimator; } }
+
 
     [SerializeField] TextMeshProUGUI resolutionStateInfoText;
     public TextMeshProUGUI ResolutionStateInfoText { get { return resolutionStateInfoText; } }
@@ -49,6 +64,7 @@ public struct UIElements
 
     [SerializeField] RectTransform finishedUIElements;
     public RectTransform FinishedUIElements { get { return finishedUIElements; } }
+
 }
 
 
@@ -70,14 +86,91 @@ public class UIManager : MonoBehaviour
 
     List<AnswerData> currentAnswers = new List<AnswerData>();
 
+    private IEnumerator IE_DisplayTimedResolution;
+
+    private int resolutionStateHashParameter = 0;
+
+    private void Start()
+    {
+        resolutionStateHashParameter = Animator.StringToHash("ScreenState");
+    }
+
     private void OnEnable()
     {
         events.UpdateQuestionUI += UpdateQuestionUI;
+        events.DisplayResolutionScreen += DisplayResolution;
     }
 
     private void OnDisable()
     {
         events.UpdateQuestionUI -= UpdateQuestionUI;
+        events.DisplayResolutionScreen -= DisplayResolution;
+    }
+
+    void DisplayResolution(ResolutionScreenType type, int score)
+    {
+        UpdateResolutionUI(type, score);
+        uiElements.ResolutionScreenAnimator.SetInteger(resolutionStateHashParameter, 2); // Popup animation
+        uiElements.MainCanvasGroup.blocksRaycasts = false;
+
+        if (type != ResolutionScreenType.Finish)
+        {
+            if (IE_DisplayTimedResolution != null)
+            {
+                StopCoroutine(IE_DisplayTimedResolution);
+            }
+            IE_DisplayTimedResolution = DisplayTimeResolution();
+            StartCoroutine(IE_DisplayTimedResolution);
+        }
+
+    }
+
+    IEnumerator DisplayTimeResolution()
+    {
+        yield return new WaitForSeconds(GameUtility.ResolutionDelayTime);
+        uiElements.ResolutionScreenAnimator.SetInteger(resolutionStateHashParameter, 1); // Fade out
+        uiElements.MainCanvasGroup.blocksRaycasts = true;
+    }
+
+    void UpdateResolutionUI(ResolutionScreenType type, int score)
+    {
+        var highScore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+
+        switch (type)
+        {
+            case ResolutionScreenType.Correct:
+                uiElements.ResolutionBackground.color = parameters.CorrectBgColor;
+                uiElements.ResolutionStateInfoText.text = "Correct!";
+                uiElements.ScoreText.text = "+" + score;
+                break;
+            case ResolutionScreenType.Incorrect:
+                uiElements.ResolutionBackground.color = parameters.IncorrectBgColor;
+                uiElements.ResolutionStateInfoText.text = "Wrong!";
+                uiElements.ScoreText.text = "-" + score;
+                break;
+            case ResolutionScreenType.Finish:
+                uiElements.ResolutionBackground.color = parameters.FinalBgColor;
+                uiElements.ResolutionStateInfoText.text = "Final Score!";
+                StartCoroutine(CalculateScore());
+
+                uiElements.FinishedUIElements.gameObject.SetActive(true);
+                uiElements.HighScoreText.gameObject.SetActive(true);
+                // Display high score
+                uiElements.HighScoreText.text = (highScore > events.StartupHighScore ? "<color=yellow>new </color>" : string.Empty) + "Highscore " + highScore;
+
+                break;
+        }
+    }
+
+    IEnumerator CalculateScore()
+    {
+        var scoreValue = 0;
+        while (scoreValue < events.CurrentFinalScore)
+        {
+            scoreValue++;
+            uiElements.ResolutionScoreText.text = scoreValue.ToString();
+            yield return null;
+        }
     }
 
     void UpdateQuestionUI(Question question)

@@ -50,12 +50,10 @@ public class AnswerData : MonoBehaviour
     {
         Checked = !Checked;
         UpdateUI();
-
         if (events.UpdateQuestionAnswer != null)
         {
             events.UpdateQuestionAnswer(this);
         }
-
     }
 
     public void UpdateUI()

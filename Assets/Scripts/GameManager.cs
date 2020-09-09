@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,22 @@ public class GameManager : MonoBehaviour
     private List<int> FinishedQuestions = new List<int>();
     private int currentQuestion = 0;
 
+    private bool IsFinished
+    {
+        get { return FinishedQuestions.Count < Questions.Length ? false : true; }
+    }
+
+    private void OnEnable()
+    {
+        events.UpdateQuestionAnswer += UpdateAnswers;
+    }
+
+    private void OnDisable()
+    {
+        events.UpdateQuestionAnswer -= UpdateAnswers;
+    }
+
+    private IEnumerator IE_WaitUntilNextRound = null;
     private void Start()
     {
         LoadQuestions();
@@ -24,9 +42,88 @@ public class GameManager : MonoBehaviour
         Display();
     }
 
+    public void UpdateAnswers(AnswerData newAnswer)
+    {
+        if (Questions[currentQuestion].GetAnswerType == Question.AnswerType.Single)
+        {
+            foreach (var answer in PickedAnswers)
+            {
+                if (answer != newAnswer)
+                {
+                    answer.Reset();
+                }
+                PickedAnswers.Clear();
+                PickedAnswers.Add(newAnswer);
+            }
+        }
+        else if (Questions[currentQuestion].GetAnswerType == Question.AnswerType.Multi)
+        {
+            bool alreadyPicked = PickedAnswers.Exists(item => item == newAnswer);
+            if (alreadyPicked)
+            {
+                PickedAnswers.Remove(newAnswer);
+            }
+            else
+            {
+                PickedAnswers.Add(newAnswer);
+            }
+        }
+        else
+        {
+            Debug.LogError("Oh noo! There is something wrong here. Please check this question answer type! :(");
+        }
+    }
+
     public void EraseAnswers()
     {
         PickedAnswers = new List<AnswerData>();
+    }
+
+
+    public void Accept()
+    {
+        bool isCorrect = CheckAnswers();
+        FinishedQuestions.Add(currentQuestion);
+
+        UpdateScore(isCorrect ? Questions[currentQuestion].AddScore : -Questions[currentQuestion].AddScore);
+
+        var type = IsFinished ? UIManager.ResolutionScreenType.Finish : (isCorrect) ? UIManager.ResolutionScreenType.Correct : UIManager.ResolutionScreenType.Incorrect;
+
+        if (events.DisplayResolutionScreen != null)
+        {
+            events.DisplayResolutionScreen(type, Questions[currentQuestion].AddScore);
+        }
+
+        if (IE_WaitUntilNextRound != null)
+        {
+            StopCoroutine(IE_WaitUntilNextRound);
+        }
+        IE_WaitUntilNextRound = WaitUntilNextRound();
+        StartCoroutine(IE_WaitUntilNextRound);
+
+    }
+
+    private bool CheckAnswers()
+    {
+        if (!CompareAnswers())
+            return false;
+        return true;
+    }
+
+    bool CompareAnswers()
+    {
+        if (PickedAnswers.Count > 0)
+        {
+            List<int> correctAnswers = Questions[currentQuestion].GetCorrectAnswers();
+            List<int> picked = PickedAnswers.Select(item => item.AnswerIndex).ToList();
+
+            var f = correctAnswers.Except(picked).ToList();
+            var s = picked.Except(correctAnswers).ToList();
+
+            return !f.Any() && !s.Any();
+
+        }
+        return false;
     }
 
     public void Display()
@@ -43,6 +140,12 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Ups! Something went wrong while trying to display new Questions UI Data. GameEvents.UpdateQuestionsUI is null! :(");
         }
 
+    }
+
+    IEnumerator WaitUntilNextRound()
+    {
+        yield return new WaitForSeconds(GameUtility.ResolutionDelayTime);
+        Display();
     }
 
     Question GetRandomQuestion()
@@ -72,6 +175,16 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < objs.Length; i++)
         {
             _questions[i] = objs[i] as Question;
+        }
+    }
+
+    private void UpdateScore(int add)
+    {
+        events.CurrentFinalScore += add;
+
+        if (events.ScoreUpdated != null)
+        {
+            events.ScoreUpdated();
         }
     }
 

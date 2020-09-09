@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &116385314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -849,6 +849,7 @@ MonoBehaviour:
     questionInfoTextObject: {fileID: 2055443334}
     scoreText: {fileID: 315697934}
     resolutionBackground: {fileID: 1999804254}
+    resolutionScreenAnimator: {fileID: 1999804257}
     resolutionStateInfoText: {fileID: 273212483}
     resolutionScoreText: {fileID: 1754191007}
     highScoreText: {fileID: 122007137}
@@ -856,6 +857,9 @@ MonoBehaviour:
     finishedUIElements: {fileID: 116385314}
   parameters:
     margins: 15
+    correctBgColor: {r: 0, g: 1, b: 0.44655704, a: 0}
+    inCorrectBgColor: {r: 1, g: 0, b: 0, a: 0}
+    finalBgColor: {r: 0, g: 1, b: 0.9286413, a: 0}
 --- !u!114 &333077531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2428,7 +2432,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1873668486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 333077531}
+        m_MethodName: Accept
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1873668486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2484,7 +2499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1930166868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2577,6 +2592,7 @@ GameObject:
   - component: {fileID: 1999804255}
   - component: {fileID: 1999804254}
   - component: {fileID: 1999804256}
+  - component: {fileID: 1999804257}
   m_Layer: 5
   m_Name: ResolutionScreen
   m_TagString: Untagged
@@ -2651,10 +2667,29 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999804252}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &1999804257
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999804252}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eaaf04de218833f4a879864bd0b48f05, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2044520655
 GameObject:
   m_ObjectHideFlags: 0
