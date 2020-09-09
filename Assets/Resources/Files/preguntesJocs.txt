@@ -3,7 +3,8 @@
     {
         "defaultScore" : 10
     },
-    "example" : {
+    "example" :
+    {
         "category":"retrogame",
         "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
         "timer" : 5,
@@ -16,196 +17,596 @@
         ]
     },
     "questions" :
-        [
-            {
-                "category":"retrogame",
-                "question": "¿Cuál fue el primer Mega Man que permitió cargar los disparos (Mega Buster)?",
-                "answer": [
-                    {"value" : "Siempre se pudo"},
-                    {"value" : "Mega Man 4", "correct": "true"},
-                    {"value" : "Mega Man X"},
-                    {"value" : "Mega Man 6"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
-                "answer": [
-                    {"value" : "25"},
-                    {"value" : "8"},
-                    {"value" : "31", "correct": "true"},
-                    {"value" : "16"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cómo se llama el protagonista de Adventure Island?",
-                "answer": [
-                    {"value" : "Wonder Boy"},
-                    {"value" : "Islander"},
-                    {"value" : "Roberto"},
-                    {"value" : "Higgins", "correct": "true"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cuál de estos personajes estaba oculto en el Mortal Kombat original?",
-                "answer": [
-                    {"value" : "Ermac"},
-                    {"value" : "Rain"},
-                    {"value" : "Smoke"},
-                    {"value" : "Reptile", "correct": "true"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cómo se llaman los 3 Battletoads?",
-                "answer": [
-                    {"value" : "Rash, Pimple, Zitz", "correct": "true"},
-                    {"value" : "Ember, Galgon, Paltry"},
-                    {"value" : "Zyx, Lolo, Wynga"},
-                    {"value" : "Leonardo, Donatello, Raphael"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cómo se llama el luchador ruso de Punch-Out!!?",
-                "answer": [
-                    {"value" : "Zan Gief"},
-                    {"value" : "Ivan Drago"},
-                    {"value" : "Rocky Balboa"},
-                    {"value" : "Soda Popinski", "correct": "true"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cuál fue el primer videojuego en presentar el idioma Simlish?",
-                "answer": [
-                    {"value" : "SimCity"},
-                    {"value" : "SimCity 3000"},
-                    {"value" : "SimCopter", "correct": "true"},
-                    {"value" : "The Sims"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cuál fue la primer consola con CD's?",
-                "answer": [
-                    {"value" : "Sega CD"},
-                    {"value" : "Play Station"},
-                    {"value" : "3DO", "correct": "true"},
-                    {"value" : "CD Boy"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Quiénes aparecían en la portada de FIFA 2004?",
-                "answer": [
-                    {"value" : "Totti, Ronaldinho, Messi"},
-                    {"value" : "Henry, Ronaldinho, Del Piero", "correct": "true"},
-                    {"value" : "Inzaghi, Shevchenko, Del Piero"},
-                    {"value" : "Shevchenko, Raúl, Ronaldinho"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Qué personaje planeaba usar Nintendo en 1981 antes de transformar su juego en Donkey Kong?",
-                "answer": [
-                    {"value" : "King Kong"},
-                    {"value" : "Pedro Picapiedra"},
-                    {"value" : "Popeye", "correct": "true"},
-                    {"value" : "Super Mario"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cuál fue primero?",
-                "answer": [
-                    {"value" : "Pac-man"},
-                    {"value" : "Tetris"},
-                    {"value" : "Png", "correct": "true"},
-                    {"value" : "Donkey Kong"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cómo se llama el hermano de Mario Bros?",
-                "answer": [
-                    {"value" : "Luigi", "correct": "true"},
-                    {"value" : "Mini Mario"},
-                    {"value" : "Pich"},
-                    {"value" : "Luis"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cúantos luchadores hay en Street Fighter II?",
-                "answer": [
-                    {"value" : "12", "correct": "true"},
-                    {"value" : "8"},
-                    {"value" : "18"},
-                    {"value" : "20"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cúantas entradas para mandos tiene la Nintendo 64?",
-                "answer": [
-                    {"value" : "4", "correct": "true"},
-                    {"value" : "2"},
-                    {"value" : "1"},
-                    {"value" : "6"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cúal es un videojuegos de carreras de coche?",
-                "answer": [
-                    {"value" : "R-Type"},
-                    {"value" : "The Simpsons: Hit and Run"},
-                    {"value" : "Frogger race"},
-                    {"value" : "Top Gear", "correct": "true"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cómo se llama el enemigo de Sonic?",
-                "answer": [
-                    {"value" : "Dr. Maligno"},
-                    {"value" : "Robotech"},
-                    {"value" : "Tails"},
-                    {"value" : "Dr. Robotnik", "correct": "true"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cómo se llamó la primer consola de PlayStation?",
-                "answer": [
-                    {"value" : "PS Project"},
-                    {"value" : "Play Station Origin"},
-                    {"value" : "Play One"},
-                    {"value" : "PS1", "correct": "true"}
-                ]
-            },
-            {
-                "category":"retrogame",
-                "question": "¿Cuál es el material de la primera espada que recibes en The Legend of Zelda?",
-                "answer": [
-                    {"value" : "Hueso", "correct": "true"},
-                    {"value" : "Madera"},
-                    {"value" : "Hierro"},
-                    {"value" : "Acero"}
-                ]
-            },
-            {
-                "category":"horrorgame",
-                "question": "¿Cómo se llama la ciudad en la que desenvuelve Resident Evil?",
-                "answer": [
-                    {"value" : "Raccon City", "correct": "true"},
-                    {"value" : "New York"},
-                    {"value" : "Metrópolis"},
-                    {"value" : "Centralia"}
-                ]
-            }
-        ]
+    [
+        {
+            "category":"retrogame",
+            "question": "¿Cuál fue el primer Mega Man que permitió cargar los disparos (Mega Buster)?",
+            "answer": [
+                {"value" : "Siempre se pudo"},
+                {"value" : "Mega Man 4", "correct": "true"},
+                {"value" : "Mega Man X"},
+                {"value" : "Mega Man 6"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
+            "answer": [
+                {"value" : "25"},
+                {"value" : "8"},
+                {"value" : "31", "correct": "true"},
+                {"value" : "16"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cómo se llama el protagonista de Adventure Island?",
+            "answer": [
+                {"value" : "Wonder Boy"},
+                {"value" : "Islander"},
+                {"value" : "Roberto"},
+                {"value" : "Higgins", "correct": "true"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cuál de estos personajes estaba oculto en el Mortal Kombat original?",
+            "answer": [
+                {"value" : "Ermac"},
+                {"value" : "Rain"},
+                {"value" : "Smoke"},
+                {"value" : "Reptile", "correct": "true"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cómo se llaman los 3 Battletoads?",
+            "answer": [
+                {"value" : "Rash, Pimple, Zitz", "correct": "true"},
+                {"value" : "Ember, Galgon, Paltry"},
+                {"value" : "Zyx, Lolo, Wynga"},
+                {"value" : "Leonardo, Donatello, Raphael"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cómo se llama el luchador ruso de Punch-Out!!?",
+            "answer": [
+                {"value" : "Zan Gief"},
+                {"value" : "Ivan Drago"},
+                {"value" : "Rocky Balboa"},
+                {"value" : "Soda Popinski", "correct": "true"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cuál fue el primer videojuego en presentar el idioma Simlish?",
+            "answer": [
+                {"value" : "SimCity"},
+                {"value" : "SimCity 3000"},
+                {"value" : "SimCopter", "correct": "true"},
+                {"value" : "The Sims"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cuál fue la primer consola con CD's?",
+            "answer": [
+                {"value" : "Sega CD"},
+                {"value" : "Play Station"},
+                {"value" : "3DO", "correct": "true"},
+                {"value" : "CD Boy"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Quiénes aparecían en la portada de FIFA 2004?",
+            "answer": [
+                {"value" : "Totti, Ronaldinho, Messi"},
+                {"value" : "Henry, Ronaldinho, Del Piero", "correct": "true"},
+                {"value" : "Inzaghi, Shevchenko, Del Piero"},
+                {"value" : "Shevchenko, Raúl, Ronaldinho"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Qué personaje planeaba usar Nintendo en 1981 antes de transformar su juego en Donkey Kong?",
+            "answer": [
+                {"value" : "King Kong"},
+                {"value" : "Pedro Picapiedra"},
+                {"value" : "Popeye", "correct": "true"},
+                {"value" : "Super Mario"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cuál fue primero?",
+            "answer": [
+                {"value" : "Pac-man"},
+                {"value" : "Tetris"},
+                {"value" : "Png", "correct": "true"},
+                {"value" : "Donkey Kong"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cómo se llama el hermano de Mario Bros?",
+            "answer": [
+                {"value" : "Luigi", "correct": "true"},
+                {"value" : "Mini Mario"},
+                {"value" : "Pich"},
+                {"value" : "Luis"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cúantos luchadores hay en Street Fighter II?",
+            "answer": [
+                {"value" : "12", "correct": "true"},
+                {"value" : "8"},
+                {"value" : "18"},
+                {"value" : "20"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cúantas entradas para mandos tiene la Nintendo 64?",
+            "answer": [
+                {"value" : "4", "correct": "true"},
+                {"value" : "2"},
+                {"value" : "1"},
+                {"value" : "6"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cúal es un videojuegos de carreras de coche?",
+            "answer": [
+                {"value" : "R-Type"},
+                {"value" : "The Simpsons: Hit and Run"},
+                {"value" : "Frogger race"},
+                {"value" : "Top Gear", "correct": "true"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cómo se llama el enemigo de Sonic?",
+            "answer": [
+                {"value" : "Dr. Maligno"},
+                {"value" : "Robotech"},
+                {"value" : "Tails"},
+                {"value" : "Dr. Robotnik", "correct": "true"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cómo se llamó la primer consola de PlayStation?",
+            "answer": [
+                {"value" : "PS Project"},
+                {"value" : "Play Station Origin"},
+                {"value" : "Play One"},
+                {"value" : "PS1", "correct": "true"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cuál es el material de la primera espada que recibes en The Legend of Zelda?",
+            "answer": [
+                {"value" : "Hueso"},
+                {"value" : "Madera", "correct": "true"},
+                {"value" : "Hierro"},
+                {"value" : "Acero"}
+            ]
+        },
+        {
+            "category":"horrorgame",
+            "question": "¿Cómo se llama la ciudad en la que desenvuelve Resident Evil?",
+            "answer": [
+                {"value" : "Raccon City", "correct": "true"},
+                {"value" : "New York"},
+                {"value" : "Metrópolis"},
+                {"value" : "Centralia"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cúal es el verdadero nombre de Blanka en Street Fighter?",
+            "answer": [
+                {"value" : "Jimmy", "correct": "true"},
+                {"value" : "Jhonny"},
+                {"value" : "Charlie"},
+                {"value" : "Jhon"}
+            ]
+        },
+        {
+            "category":"actualgame",
+            "question": "En la saga Metal Gear, ¿quién adiestró a Big Boss?",
+            "answer": [
+                {"value" : "Coronoell Campbell"},
+                {"value" : "The Boss", "correct": "true"},
+                {"value" : "Psycho Mantis"},
+                {"value" : "Zero"}
+            ]
+        },
+        {
+            "category":"pokemongame",
+            "question": "¿Que tipo de pokémon vence a los tipo planta?",
+            "answer": [
+                {"value" : "Tipo agua"},
+                {"value" : "Tipo eléctrico"},
+                {"value" : "Tipo piedra"},
+                {"value" : "Tipo fuego", "correct": "true"}
+            ]
+        },
+        {
+            "category":"hardware",
+            "question": "¿Como se llamaba Xbox One X antes de ser denominada así?",
+            "answer": [
+                {"value" : "Xbox Two"},
+                {"value" : "Project Gates"},
+                {"value" : "Project Scorpio", "correct": "true"},
+                {"value" : "Project Berkley"}
+            ]
+        },
+        {
+            "category":"horrorgame",
+            "question": "¿Qué efecto tiene la hierba roja en Resident Evil?",
+            "answer": [
+                {"value" : "Ninguno. Hay que mezclarla con otra hierba", "correct": "true"},
+                {"value" : "Detiene hemorragias"},
+                {"value" : "Cura la tos"},
+                {"value" : "Restaura resistencia"}
+            ]
+        },
+        {
+            "category":"actualgame",
+            "question": "¿Qué tipo de hongo causa el caos en The Last of Us?",
+            "answer": [
+                {"value" : "Cordyceps", "correct": "true"},
+                {"value" : "Mycena"},
+                {"value" : "Entoloma"},
+                {"value" : "Psilocibina"}
+            ]
+        },
+        {
+            "category":"retrogame",
+            "question": "¿Cómo se llama el arma más poderosa de Doom?",
+            "answer": [
+                {"value" : "Cerebral Bore"},
+                {"value" : "BFG 9000", "correct": "true"},
+                {"value" : "SGG08"},
+                {"value" : "Dark Matter Gun"}
+            ]
+        },
+        {
+            "category":"gta",
+            "question": "¿Qué ciudad \"homenajea\" Libery City en la saga GTA?",
+            "answer": [
+                {"value" : "New York", "correct": "true"},
+                {"value" : "Los Ángeles"},
+                {"value" : "Las Vegas"},
+                {"value" : "Ninguna"}
+            ]
+        },
+        {
+            "category":"godofwar",
+            "question": "¿Cuál es la arma más caracteristica de Kratos?",
+            "answer": [
+                {"value" : "Hacha de Hades"},
+                {"value" : "Espadas del Caos", "correct": "true"},
+                {"value" : "Hoja del destino"},
+                {"value" : "Hojas del Caos"}
+            ]
+        },
+        {
+            "category":"godofwar",
+            "question": "¿Cómo se llama el hermano de Dante en Devil May Cry?",
+            "answer": [
+                {"value" : "Alucard"},
+                {"value" : "Moises"},
+                {"value" : "Poe"},
+                {"value" : "Vergil", "correct": "true"}
+            ]
+        },
+        {
+            "category":"hardware",
+            "question": "¿Qué tipo era el procesador del ZX Spectrum?",
+            "answer": [
+                {"value" : "16 MHz"},
+                {"value" : "16 bits"},
+                {"value" : "8 bits", "correct": "true"},
+                {"value" : "1 Hz"}
+            ]
+        },
+        {
+            "category":"marioSaga",
+            "question": "En Mario Kart, ¿Qué ítem te proporciona un miniturbo?",
+            "answer": [
+                {"value" : "La seta", "correct": "true"},
+                {"value" : "La concha verde"},
+                {"value" : "La estrella"},
+                {"value" : "El platano"}
+            ]
+        },
+        {
+            "category":"gearofwar",
+            "question": "¿Cómo se llama el mejor amigo de Marcus en Gears of War?",
+            "answer": [
+                {"value" : "Damon Baird"},
+                {"value" : "Jota"},
+                {"value" : "Clayton Carmine"},
+                {"value" : "Dom Santiago", "correct": "true"}
+            ]
+        },
+        {
+            "category":"massEffect",
+            "question": "¿De qué raza es Mordin de Mass Effect?",
+            "answer": [
+                {"value" : "Krogan"},
+                {"value" : "Salariano", "correct": "true"},
+                {"value" : "Batariano"},
+                {"value" : "Barceriano"}
+            ]
+        },
+        {
+            "category":"finalFantasy",
+            "question": "¿Cómo se llama el ítem que puede revivir a un personaje en la saga Final Fantasy?",
+            "answer": [
+                {"value" : "Éter"},
+                {"value" : "Cola de Fénix", "correct": "true"},
+                {"value" : "Rubí Estrella"},
+                {"value" : "Seta"}
+            ]
+        },
+        {
+            "category":"animalCrossing",
+            "question": "¿Cómo se llama el personaje de Animal Crossing que encarga los primeros trabajos?",
+            "answer": [
+                {"value" : "Canela"},
+                {"value" : "Felix el Gato"},
+                {"value" : "Rodolfo Rod"},
+                {"value" : "Tom Nook", "correct": "true"}
+            ]
+        },
+        {
+            "category":"bioshock",
+            "question": "En el primer Bioshock, ¿como se recupera la capacidad para usar plásmidos?",
+            "answer": [
+                {"value" : "Con Eve", "correct": "true"},
+                {"value" : "Con Adam"},
+                {"value" : "Con tónicos"},
+                {"value" : "Con pavos"}
+            ]
+        },
+        {
+            "category":"tekken",
+            "question": "¿De quién es padre Heihachi en Tekken?",
+            "answer": [
+                {"value" : "Jin"},
+                {"value" : "Kazuya", "correct": "true"},
+                {"value" : "Yoshimitsu"},
+                {"value" : "Nina Williams"}
+            ]
+        },
+        {
+            "category":"soulsLike",
+            "question": "En la saga Dark Souls¿Con que ítem se puede dormir a un baul mímico?",
+            "answer": [
+                {"value" : "Esporas"},
+                {"value" : "Talismán de Lloyd", "correct": "true"},
+                {"value" : "Llave maestra"},
+                {"value" : "Somnífero"}
+            ]
+        },
+        {
+            "category":"soulsLike",
+            "question": "En Dark Souls Prepare to die Edition, ¿cuál de estos personajes no se puede asesinar?",
+            "answer": [
+                {"value" : "Framp el buscareyes", "correct": "true"},
+                {"value" : "Andre de Astora"},
+                {"value" : "La princesa Gwyneveres"},
+                {"value" : "Solair de Astora"}
+            ]
+        },
+        {
+            "category":"soulsLike",
+            "question": "¿En que juego de la saga Dark Souls no aparece Patches?",
+            "answer": [
+                {"value" : "Bloodborne"},
+                {"value" : "Dark Souls Remastered"},
+                {"value" : "Demon's Souls"},
+                {"value" : "Dark Souls II", "correct": "true"}
+            ]
+        },
+        {
+            "category":"Wow",
+            "question": "¿En que año el mundo de World of Warcraft sufrio una pandemia?",
+            "answer": [
+                {"value" : "2020"},
+                {"value" : "2000"},
+                {"value" : "1999"},
+                {"value" : "2005", "correct": "true"}
+            ]
+        },
+        {
+            "category":"companies",
+            "question": "¿Cúal fue el primer juego de Insomniac Games?",
+            "answer": [
+                {"value" : "Disruptor", "correct": "true"},
+                {"value" : "Spyro the Dragon"},
+                {"value" : "Resistance: Fall of man"},
+                {"value" : "Ratchet & Clank"}
+            ]
+        },
+        {
+            "category":"companies",
+            "question": "¿Cúal la empresa que lanzó Candy Crush Saga en 2012?",
+            "answer": [
+                {"value" : "Supercell"},
+                {"value" : "King Digital Entertainment", "correct": "true"},
+                {"value" : "Facebook"},
+                {"value" : "Activision"}
+            ]
+        },
+        {
+            "category":"companies",
+            "question": "¿Quién fué el creador de Super Mario Bros?",
+            "answer": [
+                {"value" : "Hideki Kamiya"},
+                {"value" : "Shingeru Miyamoto", "correct": "true"},
+                {"value" : "Hidetaka Miyazaki"},
+                {"value" : "Takashi Tezuka"}
+            ]
+        },
+        {
+            "category":"companies",
+            "question": "¿Quién fué el creador de The Legend of Zelda junto a Shingeru Miyamoto?",
+            "answer": [
+                {"value" : "Hideki Kamiya"},
+                {"value" : "Hojoro Horiki"},
+                {"value" : "Hidetaka Miyazaki"},
+                {"value" : "Takashi Tezuka", "correct": "true"}
+            ]
+        },
+        {
+            "category":"companies",
+            "question": "¿Cúal es el primer videojuego que definió el género moba?",
+            "answer": [
+                {"value" : "Defence of the Ancients", "correct": "true"},
+                {"value" : "Dota 2"},
+                {"value" : "League of Legends"},
+                {"value" : "Pong"}
+            ]
+        },
+        {
+            "category":"character",
+            "question": "¿Como se llama el hada asignada a Link por el Gran Árbol Deku?",
+            "answer": [
+                {"value" : "Navi", "correct": "true"},
+                {"value" : "Sheik"},
+                {"value" : "Epona"},
+                {"value" : "Zelda"}
+            ]
+        },
+        {
+            "category":"Spyro",
+            "question": "¿Qué se recoge en Spyro the Dragon?",
+            "answer": [
+                {"value" : "Gemas", "correct": "true"},
+                {"value" : "Estrellas"},
+                {"value" : "Manzanas"},
+                {"value" : "Hadas"}
+            ]
+        },
+        {
+            "category":"Rayman",
+            "question": "¿Qué personajes se rescatan de las jaulas en Rayman Lgends?",
+            "answer": [
+                {"value" : "Los Diminutos", "correct": "true"},
+                {"value" : "Los Lux"},
+                {"value" : "Manzanas"},
+                {"value" : "Hadas"}
+            ]
+        },
+        {
+            "category":"character",
+            "question": "¿En qué juego apareció por primera vez Mario?",
+            "answer": [
+                {"value" : "Super Mario Bros"},
+                {"value" : "Mario Land"},
+                {"value" : "Donkey Kong", "correct": "true"},
+                {"value" : "The Legend of Zelda"}
+            ]
+        },
+        {
+            "category":"hardware",
+            "question": "¿Cómo se llamo Super Nintendo originalmente en Japón?",
+            "answer": [
+                {"value" : "Super Nintendo"},
+                {"value" : "Nintendo"},
+                {"value" : "Super Famicon", "correct": "true"},
+                {"value" : "SNES"}
+            ]
+        },
+        {
+            "category":"speedrun",
+            "question": "¿Cómo camina más rápido Link en The Legend of Zelda: Ocarina of Time?",
+            "answer": [
+                {"value" : "Rodando"},
+                {"value" : "Hacia delante"},
+                {"value" : "Hacia atrás", "correct": "true"},
+                {"value" : "Pegado a la pared"}
+            ]
+        },
+        {
+            "category":"pokemon",
+            "question": "¿Cuales són los 3 pokémon iniciales en Pokémon Oro y Plata?",
+            "answer": [
+                {"value" : "Squirtel, Charmander, Bulbasur"},
+                {"value" : "Cyndaquil, Totodile, chikorita", "correct": "true"},
+                {"value" : "Turtwing, Chimchar, Piplup"},
+                {"value" : "Picachu, Totodile, Chansey"}
+            ]
+        },
+        {
+            "category":"character",
+            "question": "¿En qué saga aparece el Capitan Falcon?",
+            "answer": [
+                {"value" : "Star Wars: Rogue Squadron"},
+                {"value" : "Star Fox"},
+                {"value" : "F-Zero", "correct": "true"},
+                {"value" : "Mario Kart"}  
+            ]
+        },
+        {
+            "category":"character",
+            "question": "En Banjo-Kazooie, ¿Cómo se llama la bruja que ha raptado a la hermana del protagonista?",
+            "answer": [
+                {"value" : "Matilda"},
+                {"value" : "Gruntilda", "correct": "true"},
+                {"value" : "Tootie"},
+                {"value" : "Bruja averia"}
+            ]
+        },
+        {
+            "category":"nintendo64",
+            "question": "¿Qué vehiculo conduciamos en Wave Race 64?",
+            "answer": [
+                {"value" : "Coches"},
+                {"value" : "Motos de agua", "correct": "true"},
+                {"value" : "Lancha motora"},
+                {"value" : "Motos de cross"}
+            ]
+        },
+        {
+            "category":"nintendo64",
+            "question": "¿En qué videojuego se enfrentan todos los personajes de Nintendo?",
+            "answer": [
+                {"value" : "Tekken"},
+                {"value" : "Super Smash Bros", "correct": "true"},
+                {"value" : "Street Fighter"},
+                {"value" : "Marvel vs Capcom"}
+            ]
+        },
+        {
+            "category":"character",
+            "question": "¿Cómo se llama el sobrino de Donkey Kong?",
+            "answer": [
+                {"value" : "Donkey Kong Jr"},
+                {"value" : "Diddy Kong", "correct": "true"},
+                {"value" : "Cranky Kong"},
+                {"value" : "Dixie Kong"}
+            ]
+        },
+        {
+            "category":"character",
+            "question": "¿Cómo se llama el caballo de Link en Ocarina of Time?",
+            "answer": [
+                {"value" : "Ocarina"},
+                {"value" : "Epona", "correct": "true"},
+                {"value" : "Luz"},
+                {"value" : "Midna"}
+            ]
+        }
+    ]
 }
