@@ -857,9 +857,9 @@ MonoBehaviour:
     finishedUIElements: {fileID: 116385314}
   parameters:
     margins: 15
-    correctBgColor: {r: 0, g: 1, b: 0.44655704, a: 0}
-    inCorrectBgColor: {r: 1, g: 0, b: 0, a: 0}
-    finalBgColor: {r: 0, g: 1, b: 0.9286413, a: 0}
+    correctBgColor: {r: 0, g: 1, b: 0.44655704, a: 1}
+    inCorrectBgColor: {r: 1, g: 0, b: 0, a: 1}
+    finalBgColor: {r: 0, g: 1, b: 0.9286413, a: 1}
 --- !u!114 &333077531
 MonoBehaviour:
   m_ObjectHideFlags: 0
