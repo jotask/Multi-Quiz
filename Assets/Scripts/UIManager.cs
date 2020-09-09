@@ -93,18 +93,21 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         resolutionStateHashParameter = Animator.StringToHash("ScreenState");
+        UpdateScoreUI();
     }
 
     private void OnEnable()
     {
         events.UpdateQuestionUI += UpdateQuestionUI;
         events.DisplayResolutionScreen += DisplayResolution;
+        events.ScoreUpdated += UpdateScoreUI;
     }
 
     private void OnDisable()
     {
         events.UpdateQuestionUI -= UpdateQuestionUI;
         events.DisplayResolutionScreen -= DisplayResolution;
+        events.ScoreUpdated -= UpdateScoreUI;
     }
 
     void DisplayResolution(ResolutionScreenType type, int score)
@@ -177,7 +180,6 @@ public class UIManager : MonoBehaviour
     {
         uiElements.QuestionInfoTextObject.text = question.Info;
         CreateAnswers(question);
-
     }
 
     void CreateAnswers(Question question)
@@ -208,5 +210,9 @@ public class UIManager : MonoBehaviour
         currentAnswers.Clear();
     }
 
+    void UpdateScoreUI()
+    {
+        uiElements.ScoreText.text = "Score: " + events.CurrentFinalScore;
+    }
 
 }
