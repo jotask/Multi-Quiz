@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     {
         LoadQuestions();
 
+        events.CurrentFinalScore = 0;
+
         int seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
         UnityEngine.Random.InitState(seed);
 
