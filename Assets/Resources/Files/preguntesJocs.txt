@@ -1,0 +1,211 @@
+{
+    "configuration" :
+    {
+        "defaultScore" : 10
+    },
+    "example" : {
+        "category":"retrogame",
+        "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
+        "timer" : 5,
+        "score" : 10,
+        "answer": [
+            {"value" : "25"},
+            {"value" : "8", "correct": "true"},
+            {"value" : "31", "correct": "true"},
+            {"value" : "16"}
+        ]
+    },
+    "questions" :
+        [
+            {
+                "category":"retrogame",
+                "question": "¿Cuál fue el primer Mega Man que permitió cargar los disparos (Mega Buster)?",
+                "answer": [
+                    {"value" : "Siempre se pudo"},
+                    {"value" : "Mega Man 4", "correct": "true"},
+                    {"value" : "Mega Man X"},
+                    {"value" : "Mega Man 6"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
+                "answer": [
+                    {"value" : "25"},
+                    {"value" : "8"},
+                    {"value" : "31", "correct": "true"},
+                    {"value" : "16"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cómo se llama el protagonista de Adventure Island?",
+                "answer": [
+                    {"value" : "Wonder Boy"},
+                    {"value" : "Islander"},
+                    {"value" : "Roberto"},
+                    {"value" : "Higgins", "correct": "true"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cuál de estos personajes estaba oculto en el Mortal Kombat original?",
+                "answer": [
+                    {"value" : "Ermac"},
+                    {"value" : "Rain"},
+                    {"value" : "Smoke"},
+                    {"value" : "Reptile", "correct": "true"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cómo se llaman los 3 Battletoads?",
+                "answer": [
+                    {"value" : "Rash, Pimple, Zitz", "correct": "true"},
+                    {"value" : "Ember, Galgon, Paltry"},
+                    {"value" : "Zyx, Lolo, Wynga"},
+                    {"value" : "Leonardo, Donatello, Raphael"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cómo se llama el luchador ruso de Punch-Out!!?",
+                "answer": [
+                    {"value" : "Zan Gief"},
+                    {"value" : "Ivan Drago"},
+                    {"value" : "Rocky Balboa"},
+                    {"value" : "Soda Popinski", "correct": "true"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cuál fue el primer videojuego en presentar el idioma Simlish?",
+                "answer": [
+                    {"value" : "SimCity"},
+                    {"value" : "SimCity 3000"},
+                    {"value" : "SimCopter", "correct": "true"},
+                    {"value" : "The Sims"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cuál fue la primer consola con CD's?",
+                "answer": [
+                    {"value" : "Sega CD"},
+                    {"value" : "Play Station"},
+                    {"value" : "3DO", "correct": "true"},
+                    {"value" : "CD Boy"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Quiénes aparecían en la portada de FIFA 2004?",
+                "answer": [
+                    {"value" : "Totti, Ronaldinho, Messi"},
+                    {"value" : "Henry, Ronaldinho, Del Piero", "correct": "true"},
+                    {"value" : "Inzaghi, Shevchenko, Del Piero"},
+                    {"value" : "Shevchenko, Raúl, Ronaldinho"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Qué personaje planeaba usar Nintendo en 1981 antes de transformar su juego en Donkey Kong?",
+                "answer": [
+                    {"value" : "King Kong"},
+                    {"value" : "Pedro Picapiedra"},
+                    {"value" : "Popeye", "correct": "true"},
+                    {"value" : "Super Mario"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cuál fue primero?",
+                "answer": [
+                    {"value" : "Pac-man"},
+                    {"value" : "Tetris"},
+                    {"value" : "Png", "correct": "true"},
+                    {"value" : "Donkey Kong"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cómo se llama el hermano de Mario Bros?",
+                "answer": [
+                    {"value" : "Luigi", "correct": "true"},
+                    {"value" : "Mini Mario"},
+                    {"value" : "Pich"},
+                    {"value" : "Luis"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cúantos luchadores hay en Street Fighter II?",
+                "answer": [
+                    {"value" : "12", "correct": "true"},
+                    {"value" : "8"},
+                    {"value" : "18"},
+                    {"value" : "20"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cúantas entradas para mandos tiene la Nintendo 64?",
+                "answer": [
+                    {"value" : "4", "correct": "true"},
+                    {"value" : "2"},
+                    {"value" : "1"},
+                    {"value" : "6"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cúal es un videojuegos de carreras de coche?",
+                "answer": [
+                    {"value" : "R-Type"},
+                    {"value" : "The Simpsons: Hit and Run"},
+                    {"value" : "Frogger race"},
+                    {"value" : "Top Gear", "correct": "true"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cómo se llama el enemigo de Sonic?",
+                "answer": [
+                    {"value" : "Dr. Maligno"},
+                    {"value" : "Robotech"},
+                    {"value" : "Tails"},
+                    {"value" : "Dr. Robotnik", "correct": "true"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cómo se llamó la primer consola de PlayStation?",
+                "answer": [
+                    {"value" : "PS Project"},
+                    {"value" : "Play Station Origin"},
+                    {"value" : "Play One"},
+                    {"value" : "PS1", "correct": "true"}
+                ]
+            },
+            {
+                "category":"retrogame",
+                "question": "¿Cuál es el material de la primera espada que recibes en The Legend of Zelda?",
+                "answer": [
+                    {"value" : "Hueso", "correct": "true"},
+                    {"value" : "Madera"},
+                    {"value" : "Hierro"},
+                    {"value" : "Acero"}
+                ]
+            },
+            {
+                "category":"horrorgame",
+                "question": "¿Cómo se llama la ciudad en la que desenvuelve Resident Evil?",
+                "answer": [
+                    {"value" : "Raccon City", "correct": "true"},
+                    {"value" : "New York"},
+                    {"value" : "Metrópolis"},
+                    {"value" : "Centralia"}
+                ]
+            }
+        ]
+}
