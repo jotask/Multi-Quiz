@@ -8,6 +8,7 @@
     {
         "category":"retrogame",
         "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
+        "type" : "text",
         "timer" : 5,
         "score" : 10,
         "answer": [
@@ -19,19 +20,19 @@
     },
     "categories" : [
         {
-            "id" : "retrogame",
+            "id" : 0,
             "name" : "Retro"
         },
         {
-            "id" : "actualgame",
+            "id" : 1,
             "name" : "Actual"
         },
         {
-            "id" : "characters",
+            "id" : 2,
             "name" : "Characters"
         },
         {
-            "id" : "hardware",
+            "id" : 3,
             "name" : "Hardware"
         }
     ],
@@ -40,6 +41,7 @@
         {
             "category": "retrogame",
             "question": "¿Cuál fue el primer Mega Man que permitió cargar los disparos (Mega Buster)?",
+            "type" : "Video",
             "answer": [
                 {"value" : "Mega Man 4", "correct": "true"},
                 {"value" : "Siempre se pudo"},
@@ -50,6 +52,7 @@
         {
             "category": "retrogame",
             "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
+            "type" : "text",
             "answer": [
                 {"value" : "25"},
                 {"value" : "8"},
@@ -60,6 +63,7 @@
         {
             "category":"retrogame",
             "question": "¿Cómo se llama el protagonista de Adventure Island?",
+            "type" : "text",
             "answer": [
                 {"value" : "Wonder Boy"},
                 {"value" : "Islander"},
@@ -70,6 +74,7 @@
         {
             "category":"retrogame",
             "question": "¿Cuál de estos personajes estaba oculto en el Mortal Kombat original?",
+            "type" : "text",
             "answer": [
                 {"value" : "Ermac"},
                 {"value" : "Rain"},
