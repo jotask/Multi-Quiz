@@ -305,11 +305,6 @@ namespace Multi_Quiz_Editor_Tool
             }
         }
 
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Form prompt = new Form();
@@ -354,21 +349,6 @@ namespace Multi_Quiz_Editor_Tool
 
         }
 
-        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void groupBox9_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox10_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             questionFile.configuration.defaultScoreToadd = int.Parse(textBox1.Text);
@@ -379,14 +359,5 @@ namespace Multi_Quiz_Editor_Tool
             questionFile.configuration.questionsToAskPerCategory = int.Parse(textBox2.Text);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

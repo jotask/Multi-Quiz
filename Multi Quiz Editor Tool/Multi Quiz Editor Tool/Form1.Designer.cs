@@ -214,7 +214,6 @@
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Questions To ask";
-            this.groupBox10.Enter += new System.EventHandler(this.groupBox10_Enter);
             // 
             // textBox2
             // 
@@ -235,7 +234,6 @@
             this.groupBox9.TabIndex = 0;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Default Score";
-            this.groupBox9.Enter += new System.EventHandler(this.groupBox9_Enter);
             // 
             // textBox1
             // 
@@ -291,7 +289,6 @@
             this.treeView2.Name = "treeView2";
             this.treeView2.Size = new System.Drawing.Size(786, 501);
             this.treeView2.TabIndex = 0;
-            this.treeView2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView2_AfterSelect);
             // 
             // panel2
             // 
@@ -417,7 +414,6 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Category";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // comboBox1
             // 
@@ -427,7 +423,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(306, 21);
             this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox8
             // 
@@ -589,7 +584,6 @@
             this.richTextBox2.Size = new System.Drawing.Size(288, 46);
             this.richTextBox2.TabIndex = 0;
             this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // button1
             // 
