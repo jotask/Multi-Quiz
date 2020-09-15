@@ -97,7 +97,7 @@ namespace Multi_Quiz_Editor_Tool
                     var question = questionsNode[i];
                     Question q = new Question();
                     q.questionText = question["question"];
-                    q.type = (question["type"] != null) ? (Question.QuestionType) Enum.Parse(typeof(Question.QuestionType), question["type"], true) : Question.QuestionType.Text;
+                    q.type = (question["type"] != null) ? (Question.QuestionType)Enum.Parse(typeof(Question.QuestionType), question["type"], true) : Question.QuestionType.Text;
 
                     if (question["category"].IsNumber == true)
                     {

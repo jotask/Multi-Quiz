@@ -17,6 +17,7 @@ namespace Multi_Quiz_Editor_Tool
     {
 
         private QuestionFile questionFile;
+        private string filePath = string.Empty;
 
         public QuizEditorTool()
         {
@@ -39,8 +40,8 @@ namespace Multi_Quiz_Editor_Tool
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                string fileName = dlg.FileName;
-                questionFile = QuestionFile.LoadFromFile(fileName);
+                filePath = dlg.FileName;
+                questionFile = QuestionFile.LoadFromFile(filePath);
                 LoadQuestionFile();
             }
         }
@@ -48,7 +49,7 @@ namespace Multi_Quiz_Editor_Tool
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.InitialDirectory = filePath;
             saveFileDialog1.Title = "Save text Files";
             saveFileDialog1.CheckFileExists = false;
             saveFileDialog1.CheckPathExists = true;
@@ -85,7 +86,7 @@ namespace Multi_Quiz_Editor_Tool
 
         private void SaveQuestionFile(string file)
         {
-            MessageBox.Show("Not implemented yet, sorry! ): " + file);
+            MessageBox.Show("Not implemented yet, sorry! ): File: " + file);
         }
 
         private void newQuestionBtn_Click(object sender, EventArgs e)
