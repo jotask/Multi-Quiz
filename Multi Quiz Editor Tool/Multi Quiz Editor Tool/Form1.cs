@@ -63,6 +63,16 @@ namespace Multi_Quiz_Editor_Tool
 
         private void LoadQuestionFile()
         {
+
+            treeView1.Nodes.Clear();
+            treeView2.Nodes.Clear();
+
+            foreach (Category c in questionFile.categories)
+            {
+                var many = questionFile.questions.Where(item => item.category.id == c.id).Count();
+                treeView2.Nodes.Add(c.name + " [" + many + "/" + questionFile.questions.Count + "]");
+            }
+
             foreach (Question q in questionFile.questions)
             {
                 treeView1.Nodes.Add(q.questionText);
@@ -102,10 +112,20 @@ namespace Multi_Quiz_Editor_Tool
                     comboBox1.Items.Add(cat.name);
                 }
 
+                var answersUI = new[] { new { text = richTextBox2, isCorrect = checkBox1 } }.ToList() ;
+                answersUI.Clear();
+                answersUI.Add(new { text = richTextBox2, isCorrect = checkBox1 });
+                answersUI.Add(new { text = richTextBox3, isCorrect = checkBox2 });
+                answersUI.Add(new { text = richTextBox4, isCorrect = checkBox3 });
+                answersUI.Add(new { text = richTextBox5, isCorrect = checkBox4 });
+
                 // Answers
-                foreach (var answer in q.answers)
+                for (int i = 0; i < q.answers.Count; i++)
                 {
-                    
+                    Answer ans = q.answers[i];
+                    var tmp = answersUI[i];
+                    tmp.text.Text = ans.text;
+                    tmp.isCorrect.Checked = ans.isCorrectAnswer;
                 }
             }
             else
@@ -229,5 +249,19 @@ namespace Multi_Quiz_Editor_Tool
             }
         }
 
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }
