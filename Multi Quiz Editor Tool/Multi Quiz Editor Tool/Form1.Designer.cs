@@ -417,6 +417,7 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Category";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // comboBox1
             // 
@@ -426,6 +427,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(306, 21);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox8
             // 

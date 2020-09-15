@@ -78,6 +78,7 @@ namespace Multi_Quiz_Editor_Tool
                     }
                 }
                 finalFile.categories = new List<Category>();
+                finalFile.categories.Add(new Category { id = -1, name = "Unknown" });
                 foreach (var tmp in categoryMap)
                 {
                     Category c = new Category();
@@ -97,8 +98,16 @@ namespace Multi_Quiz_Editor_Tool
                     Question q = new Question();
                     q.questionText = question["question"];
                     q.type = (question["type"] != null) ? (Question.QuestionType) Enum.Parse(typeof(Question.QuestionType), question["type"], true) : Question.QuestionType.Text;
-                    var cat = finalFile.categories.Find(item => item.id == question["category"].AsInt);
-                    q.category = (cat == null) ? new Category{ id = -1, name = "Unknow" } : cat;
+
+                    if (question["category"].IsNumber == true)
+                    {
+                        q.category = finalFile.categories.Find(item => item.id == question["category"].AsInt);
+                    }
+                    else
+                    {
+                        q.category = finalFile.categories[0];
+                    }
+
                     q.answers = new List<Answer>();
                     for (int a = 0; a < question["answer"].Count; a++)
                     {

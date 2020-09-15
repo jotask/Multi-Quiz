@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,7 +58,7 @@ namespace Multi_Quiz_Editor_Tool
             saveFileDialog1.RestoreDirectory = true;
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Console.WriteLine(saveFileDialog1.FileName);
+                SaveQuestionFile(saveFileDialog1.FileName);
             }
         }
 
@@ -82,15 +83,142 @@ namespace Multi_Quiz_Editor_Tool
             }
         }
 
+        private void SaveQuestionFile(string file)
+        {
+            MessageBox.Show("Not implemented yet, sorry! ): " + file);
+        }
+
         private void newQuestionBtn_Click(object sender, EventArgs e)
         {
+            Form prompt = new Form();
+            prompt.Text = "Create new question";
+            prompt.AutoSize = true;
 
+            Label questionLabel = new Label() { Dock = DockStyle.Top, Text = "Question" };
+            TextBox inputQuestionBox = new TextBox() { Dock = DockStyle.Top, Width = 400 };
+
+            Label categoryLabel = new Label() { Dock = DockStyle.Top, Text = "Category" };
+            ComboBox catCombo = new ComboBox { Dock = DockStyle.Top, Width = 400 };
+            foreach (var cat in questionFile.categories)
+            {
+                catCombo.Items.Add(cat.name);
+            }
+            catCombo.SelectedIndex = 0;
+
+            Label typeLabel = new Label() { Dock = DockStyle.Top, Text = "Question type" };
+            ComboBox type = new ComboBox { Dock = DockStyle.Top, Width = 400 };
+            foreach (var names in Enum.GetValues(typeof(Question.QuestionType)))
+            {
+                type.Items.Add(names);
+            }
+            type.SelectedItem = Question.QuestionType.Text;
+
+            Button confirmation = new Button() { Text = "Ok", Dock = DockStyle.Fill };
+            Button exit = new Button() { Text = "Cancel", Dock = DockStyle.Fill };
+            confirmation.Click += (senderr, ee) => { prompt.DialogResult = DialogResult.OK; prompt.Close(); };
+            exit.Click += (senderr, ee) => { prompt.DialogResult = DialogResult.Cancel; prompt.Close(); };
+
+            GroupBox answerBox = new GroupBox() { Text = "Answers", Dock = DockStyle.Top };
+            answerBox.AutoSize = true;
+
+            Label a1L = new Label() { Dock = DockStyle.Top, Text = "Answer 1" };
+            TextBox a1T = new TextBox() { Dock = DockStyle.Top };
+            CheckBox a1C = new CheckBox() { Dock = DockStyle.Top, Text = "Is CorrectAnswer", Checked = false };
+            Label a2L = new Label() { Dock = DockStyle.Top, Text = "Answer 2" };
+            TextBox a2T = new TextBox() { Dock = DockStyle.Top };
+            CheckBox a2C = new CheckBox() { Dock = DockStyle.Top, Text = "Is CorrectAnswer", Checked = false };
+            Label a3L = new Label() { Dock = DockStyle.Top, Text = "Answer 3" };
+            TextBox a3T = new TextBox() { Dock = DockStyle.Top };
+            CheckBox a3C = new CheckBox() { Dock = DockStyle.Top, Text = "Is CorrectAnswer", Checked = false };
+            Label a4L = new Label() { Dock = DockStyle.Top, Text = "Answer 4" };
+            TextBox a4T = new TextBox() { Dock = DockStyle.Top };
+            CheckBox a4C = new CheckBox() { Dock = DockStyle.Top, Text = "Is CorrectAnswer", Checked = false };
+
+            a1C.CheckedChanged += new System.EventHandler((senderrr, eee) =>
+            {
+                if (a1C.Checked)
+                {
+                    a2C.Checked = false;
+                    a3C.Checked = false;
+                    a4C.Checked = false;
+                }
+            });
+            a2C.CheckedChanged += new System.EventHandler((senderrr, eee) =>
+            {
+                if (a2C.Checked)
+                {
+                    a1C.Checked = false;
+                    a3C.Checked = false;
+                    a4C.Checked = false;
+                }
+            });
+            a3C.CheckedChanged += new System.EventHandler((senderrr, eee) =>
+            {
+                if (a3C.Checked)
+                {
+                    a1C.Checked = false;
+                    a2C.Checked = false;
+                    a4C.Checked = false;
+                }
+            });
+            a4C.CheckedChanged += new System.EventHandler((senderrr, eee) =>
+            {
+                if (a4C.Checked)
+                {
+                    a1C.Checked = false;
+                    a2C.Checked = false;
+                    a3C.Checked = false;
+                }
+            });
+
+            answerBox.Controls.Add(a4C);
+            answerBox.Controls.Add(a4T);
+            answerBox.Controls.Add(a4L);
+            answerBox.Controls.Add(a3C);
+            answerBox.Controls.Add(a3T);
+            answerBox.Controls.Add(a3L);
+            answerBox.Controls.Add(a2C);
+            answerBox.Controls.Add(a2T);
+            answerBox.Controls.Add(a2L);
+            answerBox.Controls.Add(a1C);
+            answerBox.Controls.Add(a1T);
+            answerBox.Controls.Add(a1L);
+
+            SplitContainer splitPanel = new SplitContainer();
+            splitPanel.Dock = DockStyle.Bottom;
+            splitPanel.Panel1.Controls.Add(exit);
+            splitPanel.Panel2.Controls.Add(confirmation);
+
+            prompt.Controls.Add(splitPanel);
+            prompt.Controls.Add(answerBox);
+            prompt.Controls.Add(type);
+            prompt.Controls.Add(typeLabel);
+            prompt.Controls.Add(catCombo);
+            prompt.Controls.Add(categoryLabel);
+            prompt.Controls.Add(inputQuestionBox);
+            prompt.Controls.Add(questionLabel);
+
+            if (prompt.ShowDialog() == DialogResult.OK)
+            {
+                Question q = new Question();
+                q.questionText = inputQuestionBox.Text;
+                q.type = (Question.QuestionType) Enum.Parse(typeof(Question.QuestionType), type.SelectedItem.ToString(), true);
+                q.category = questionFile.categories.Find(item => item.name.Equals(catCombo.SelectedItem.ToString(), StringComparison.InvariantCultureIgnoreCase));
+                q.answers = new List<Answer>();
+                q.answers.Add(new Answer() { text = a1T.Text, isCorrectAnswer = a1C.Checked });
+                q.answers.Add(new Answer() { text = a2T.Text, isCorrectAnswer = a2C.Checked });
+                q.answers.Add(new Answer() { text = a3T.Text, isCorrectAnswer = a3C.Checked });
+                q.answers.Add(new Answer() { text = a4T.Text, isCorrectAnswer = a4C.Checked });
+                questionFile.questions.Add(q);
+                LoadQuestionFile();
+            }
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             PopulateQuestion(e.Node.Text);
         }
+
         private void PopulateQuestion(string questionText)
         {
             var q = questionFile.questions.Find(item => item.questionText.Equals(questionText));
@@ -105,7 +233,6 @@ namespace Multi_Quiz_Editor_Tool
                 {
                     comboBox2.Items.Add(names);
                 }
-
                 comboBox2.SelectedItem = q.type;
 
                 // Categories
@@ -114,6 +241,7 @@ namespace Multi_Quiz_Editor_Tool
                 {
                     comboBox1.Items.Add(cat.name);
                 }
+                comboBox1.SelectedItem = q.category.name;
 
                 var answersUI = new[] { new { text = richTextBox2, isCorrect = checkBox1 } }.ToList() ;
                 answersUI.Clear();
@@ -249,6 +377,16 @@ namespace Multi_Quiz_Editor_Tool
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             questionFile.configuration.questionsToAskPerCategory = int.Parse(textBox2.Text);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
