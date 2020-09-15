@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -65,6 +66,9 @@ namespace Multi_Quiz_Editor_Tool
 
             treeView1.Nodes.Clear();
             treeView2.Nodes.Clear();
+
+            textBox1.Text = questionFile.configuration.defaultScoreToadd.ToString();
+            textBox2.Text = questionFile.configuration.questionsToAskPerCategory.ToString();
 
             foreach (Category c in questionFile.categories)
             {
@@ -180,12 +184,71 @@ namespace Multi_Quiz_Editor_Tool
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Form prompt = new Form();
+            prompt.Width = 500;
+            prompt.Height = 150;
+            prompt.Text = "Create a new category";
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = "New category name" };
+            TextBox inputBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70 };
+            Button exit = new Button() { Text = "Cancel", Left = 50, Width = 100, Top = 70 };
+            confirmation.Click += (senderr, ee) => { prompt.DialogResult = DialogResult.OK; prompt.Close(); };
+            exit.Click += (senderr, ee) => { prompt.DialogResult = DialogResult.Cancel; prompt.Close(); };
+            prompt.Controls.Add(exit);
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(textLabel);
+            prompt.Controls.Add(inputBox);
+
+            if (prompt.ShowDialog() == DialogResult.OK)
+            {
+                // find available catgory id
+                List<int> catId = new List<int>();
+                foreach (var cat in questionFile.categories)
+                {
+                    catId.Add(cat.id);
+                }
+                catId.OrderBy(item => item);
+                int newCatId = 0;
+                for (int i = 0; i < catId.Count; i++)
+                {
+                    if (newCatId == catId[i])
+                    {
+                        newCatId++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                questionFile.categories.Add(new Category { id = newCatId , name = inputBox.Text });
+                LoadQuestionFile();
+            }
 
         }
 
         private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        private void groupBox9_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox10_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            questionFile.configuration.defaultScoreToadd = int.Parse(textBox1.Text);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            questionFile.configuration.questionsToAskPerCategory = int.Parse(textBox2.Text);
         }
     }
 }

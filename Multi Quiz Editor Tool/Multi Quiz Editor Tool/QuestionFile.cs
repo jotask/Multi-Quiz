@@ -97,7 +97,8 @@ namespace Multi_Quiz_Editor_Tool
                     Question q = new Question();
                     q.questionText = question["question"];
                     q.type = (question["type"] != null) ? (Question.QuestionType) Enum.Parse(typeof(Question.QuestionType), question["type"], true) : Question.QuestionType.Text;
-                    q.category = finalFile.categories.Find(item => item.id == question["category"].AsInt);
+                    var cat = finalFile.categories.Find(item => item.id == question["category"].AsInt);
+                    q.category = (cat == null) ? new Category{ id = -1, name = "Unknow" } : cat;
                     q.answers = new List<Answer>();
                     for (int a = 0; a < question["answer"].Count; a++)
                     {

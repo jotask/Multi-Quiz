@@ -38,6 +38,11 @@
             this.verifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Configuration = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -73,6 +78,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.Configuration.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -176,6 +185,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -183,6 +193,58 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Configuration";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.groupBox10);
+            this.panel4.Controls.Add(this.groupBox9);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(786, 539);
+            this.panel4.TabIndex = 0;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.textBox2);
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox10.Location = new System.Drawing.Point(0, 39);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(786, 40);
+            this.groupBox10.TabIndex = 1;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Questions To ask";
+            this.groupBox10.Enter += new System.EventHandler(this.groupBox10_Enter);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Location = new System.Drawing.Point(3, 16);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(780, 20);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.textBox1);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox9.Location = new System.Drawing.Point(0, 0);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(786, 39);
+            this.groupBox9.TabIndex = 0;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Default Score";
+            this.groupBox9.Enter += new System.EventHandler(this.groupBox9_Enter);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(3, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(780, 20);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tabPage2
             // 
@@ -551,6 +613,12 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.Configuration.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -624,6 +692,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
