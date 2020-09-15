@@ -39,7 +39,7 @@
     "questions" :
     [
         {
-            "category": "retrogame",
+            "category": 0,
             "question": "¿Cuál fue el primer Mega Man que permitió cargar los disparos (Mega Buster)?",
             "type" : "Video",
             "answer": [
