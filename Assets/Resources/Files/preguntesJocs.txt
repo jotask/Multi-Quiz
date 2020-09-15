@@ -9,6 +9,7 @@
         "category":"retrogame",
         "question": "¿Cuántos juegos basados en la franquicia Worms de Team17 existen?",
         "type" : "text",
+        "link" : "path/to/file"
         "timer" : 5,
         "score" : 10,
         "answer": [
