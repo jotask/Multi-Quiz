@@ -332,7 +332,7 @@ namespace Multi_Quiz_Editor_Tool
                     catId.Add(cat.id);
                 }
                 catId.OrderBy(item => item);
-                int newCatId = 0;
+                int newCatId = -1;
                 for (int i = 0; i < catId.Count; i++)
                 {
                     if (newCatId == catId[i])
