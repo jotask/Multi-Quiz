@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleJSON;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
@@ -122,6 +123,56 @@ namespace Multi_Quiz_Editor_Tool
             }
 
             return finalFile;
+        }
+
+        public static string GetSaveData(QuestionFile file)
+        {
+            JSONNode root = new JSONObject();
+
+            JSONObject config = new JSONObject();
+            config.Add("defaultScore", new JSONNumber(file.configuration.defaultScoreToadd));
+            config.Add("questionsToAsk", new JSONNumber(file.configuration.questionsToAskPerCategory));
+
+            JSONArray categories = new JSONArray();
+            foreach (var cat in file.categories)
+            {
+                JSONNode category = new JSONObject();
+                category.Add("id", new JSONNumber(cat.id));
+                category.Add("name", new JSONString(cat.name));
+                categories.Add(category);
+            }
+
+            JSONArray questions = new JSONArray();
+            foreach (var question in file.questions)
+            {
+                JSONNode q = new JSONObject();
+
+                q.Add("category", question.category.id);
+                q.Add("question", question.questionText);
+                q.Add("type", question.type.ToString());
+                // TODO Implement this into the code
+                q.Add("link", "");
+                q.Add("timer", 0);
+                q.Add("score", 10);
+
+                JSONArray answers = new JSONArray();
+                foreach (var answer in question.answers)
+                {
+                    JSONObject a = new JSONObject();
+                    a.Add("value", answer.text);
+                    a.Add("correct", answer.isCorrectAnswer);
+                    answers.Add(a);
+                }
+                q.Add("answer", answers);
+
+                questions.Add(q);
+            }
+
+            root.Add("configuration", config);
+            root.Add("categories", categories);
+            root.Add("questions", questions);
+
+            return root.ToString();
         }
 
     }
