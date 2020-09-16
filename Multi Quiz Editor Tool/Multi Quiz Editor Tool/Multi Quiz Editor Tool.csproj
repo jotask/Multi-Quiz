@@ -57,6 +57,7 @@
     <Compile Include="QuestionFile.cs" />
     <Compile Include="SimpleJson.cs" />
     <Compile Include="test\QuestionFileTest.cs" />
+    <Compile Include="test\tests\AnswerTest.cs" />
     <Compile Include="test\tests\CategoryTest.cs" />
     <Compile Include="test\tests\QFTest.cs" />
     <EmbeddedResource Include="Form1.resx">
