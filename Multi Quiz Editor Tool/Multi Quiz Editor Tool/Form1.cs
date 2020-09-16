@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Multi_Quiz_Editor_Tool.test;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -358,5 +359,19 @@ namespace Multi_Quiz_Editor_Tool
             questionFile.configuration.questionsToAskPerCategory = int.Parse(textBox2.Text);
         }
 
+        private void verifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string str = String.Empty;
+            var result = QuestionFileTest.TestQuestionFile(questionFile);
+            if (result)
+            {
+                str = "All good (:";
+            }
+            else
+            {
+                str = "Something went wrong ):";
+            }
+            MessageBox.Show(str);
+        }
     }
 }
