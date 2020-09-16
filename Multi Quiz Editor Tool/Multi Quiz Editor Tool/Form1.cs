@@ -59,7 +59,11 @@ namespace Multi_Quiz_Editor_Tool
             saveFileDialog1.RestoreDirectory = true;
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                SaveQuestionFile(saveFileDialog1.FileName);
+
+                var data = QuestionFile.GetSaveData(questionFile);
+                System.IO.StreamWriter file = new System.IO.StreamWriter(saveFileDialog1.FileName);
+                file.Write(data);
+                file.Close();
             }
         }
 
@@ -82,11 +86,6 @@ namespace Multi_Quiz_Editor_Tool
             {
                 treeView1.Nodes.Add(q.questionText);
             }
-        }
-
-        private void SaveQuestionFile(string file)
-        {
-            MessageBox.Show("Not implemented yet, sorry! ): File: " + file);
         }
 
         private void newQuestionBtn_Click(object sender, EventArgs e)
