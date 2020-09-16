@@ -11,7 +11,6 @@ namespace Multi_Quiz_Editor_Tool.test.tests
     {
         public bool Execute(QuestionFile qf)
         {
-
             // Test for each category to confirm they have an unique id
             HashSet<int> set = new HashSet<int>();
             foreach (var cat in qf.categories)
@@ -23,7 +22,6 @@ namespace Multi_Quiz_Editor_Tool.test.tests
                     return false;
                 }
             }
-
             // Test if all quetions have a correct category
             foreach (var question in qf.questions)
             {
