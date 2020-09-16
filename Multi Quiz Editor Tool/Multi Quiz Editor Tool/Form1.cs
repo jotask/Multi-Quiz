@@ -59,7 +59,6 @@ namespace Multi_Quiz_Editor_Tool
             saveFileDialog1.RestoreDirectory = true;
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-
                 var data = QuestionFile.GetSaveData(questionFile);
                 System.IO.StreamWriter file = new System.IO.StreamWriter(saveFileDialog1.FileName);
                 file.Write(data);
